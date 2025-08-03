@@ -1,0 +1,38 @@
+{% extends "assignments/base.html" %}
+
+
+{%block mainContent%}
+    {% for assignment in assignmentsDue%}
+        <div id='assignment-box-Due' class='assignment-box'>
+            <div class='general-info'>
+                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h2>{{assignment.subjectConn.teacher}}</h2>
+            </div>
+            <hr>
+            <p><b>Описание: </b>{{assignment.assignmentDesc}}</p>
+            <p><b>Крайна дата:</b> {{assignment.dueDate}}</p>
+        </div>
+    {% endfor %}
+    {% for assignment in assignmentsLater%}
+        <div id='assignment-box-Later' class='assignment-box'>
+            <div class='general-info'>
+                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h2>{{assignment.subjectConn.teacher}}</h2>
+            </div>
+            <hr>
+            <p><b>Описание: </b>{{assignment.assignmentDesc}}</p>
+            <p><b>Крайна дата:</b> {{assignment.dueDate}}</p>
+        </div>
+    {% endfor %}
+    {% for assignment in assignmentsLate%}
+        <div id='assignment-box-Late' class='assignment-box'>
+            <div class='general-info'>
+                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h2>{{assignment.subjectConn.teacher}}</h2>
+            </div>
+            <hr>
+            <p><b>Описание: </b>{{assignment.assignmentDesc}}</p>
+            <p><b>Крайна дата:</b> {{assignment.dueDate}}</p>
+        </div>
+    {% endfor %}
+{%endblock%}

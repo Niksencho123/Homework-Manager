@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href="{% static 'styles/index.css'%}">
+        <title>Начална страница</title>
+    </head>
+    <body>
+        <header class='index-header'>
+            <h1>Саморъчна база данни на заданията в 8."ж" клас</h1>
+            <p>Много яка и добра, и фукционираща база данни</p>
+            <nav>
+                <ul>
+                    <li {%if tomorrow%} id='visiting' {%endif%}><a href="{% url 'assignments-index'%}">Утре</a></li>
+                    <li {%if thisWeek%} id='visiting' {%endif%}><a href="{% url 'assignments-thisWeek' %}">Тази седмица</a></li>
+                    <li {%if filterHomework%} id='visiting' {%endif%}><a href='#'>Филтриране</a></li>
+                    <li {%if addHomework%} id='visiting' {%endif%}><a href="{% url 'assignments-newAssignment' %}">Добавяне на задание</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {%block mainContent%}
+
+            {%endblock%}
+        </main>
+    </body>
+</html>
