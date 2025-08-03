@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Assignment
+from .models import Assignment, Subject
+from django.http import Http404
 from .forms import AssignmentForm
 from datetime import date, timedelta
 from django.utils import timezone
@@ -29,7 +30,7 @@ def newAssignment(request):
     if request.method == "POST":
         form = AssignmentForm(request.POST)
         if form.is_valid():
-            newAssignmentAdded = Assignment(subject=form.cleaned_data['classField'], teacher=form.cleaned_data['teacherField'], assignmentDesc = form.cleaned_data['descField'], dueDate = form.cleaned_data['dueField'])
+            newAssignmentAdded = Assignment(subjectConn=Subject.objects.get(id=form.cleaned_data['classField']), assignmentDesc = form.cleaned_data['descField'], dueDate = form.cleaned_data['dueField'])
             newAssignmentAdded.save()
             return redirect('assignments-success')
     else:
@@ -42,3 +43,10 @@ def newAssignment(request):
 
 def added_success_view(request):
     return render(request, 'assignments/added_success.html')
+
+def assignmentInfo(request, assignmentId):
+    try:
+        assignmentQueryInfo = Assignment.objects.get(pk=assignmentId)
+    except Assignment.DoesNotExist:
+        raise Http404("The page doesn't exist")
+    return render(request, 'assignments/info.html', {'assignment': assignmentQueryInfo})

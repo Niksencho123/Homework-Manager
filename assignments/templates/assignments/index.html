@@ -5,12 +5,14 @@
     {% for assignment in assignments%}
         <div class='assignment-box'>
             <div class='general-info'>
-                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h1><a href="{% url 'assignment-info' assignment.id%}">{{assignment.subjectConn.subjectName}}</a></h1>
                 <h2>{{assignment.subjectConn.teacher}}</h2>
             </div>
             <hr>
             <p><b>Описание: </b>{{assignment.assignmentDesc}}</p>
             <p><b>Крайна дата:</b> {{assignment.dueDate}}</p>
         </div>
+    {%empty%}
+        Няма записана домашна, която да е за утре!
     {% endfor %}
 {%endblock%}

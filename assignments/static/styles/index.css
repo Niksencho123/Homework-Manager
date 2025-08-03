@@ -4,7 +4,10 @@
   border-left: 5px solid rgb(225, 64, 64);
   
 }
-
+*
+{
+  box-sizing:border-box;
+}
 #assignment-box-Due
 {
   background-color: rgba(235, 224, 75, 0.693) !important;
@@ -16,20 +19,14 @@
   border-left: 5px solid rgb(56, 164, 46);
 }
 
-#assignment-box-Due h1
+#assignment-box-Due h1 a, #assignment-box-Later h1 a, #assignment-box-Late h1 a
 {
   color: white !important;
 }
-#assignment-box-Later h1
+
+#assignment-box-Due h1 a:hover, #assignment-box-Later h1 a:hover, #assignment-box-Late h1 a:hover
 {
-  color: white !important;
-}
-#assignment-box-Late h1
-{
-  color: white !important;
-}
-* {
-  box-sizing: border-box;
+  color: rgba(187, 187, 187, 0.704) !important;
 }
 
 header
@@ -90,6 +87,7 @@ li a
   padding: 10px;
   box-sizing: border-box;
 }
+
 li:hover
 {
   scale: 1.05;
@@ -109,6 +107,44 @@ li:hover
     box-shadow: rgb(135, 188, 136) 7px 7px 10px;
     transition: scale 0.5s;
 }
+
+form
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 1.8/vw, 3rem);
+}
+form > input, select, textarea
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+form > input[type='submit']
+{
+  max-width: 200px;
+  background-color: rgba(0, 255, 255, 0.13);
+  font-size: 20px;
+  align-self: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#info h1{
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  margin-left: 4%;
+  margin-right: 4%;
+  color: rgb(21, 109, 22) !important;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
 main
 {
   background: rgba(255, 255, 255, 0.2);
@@ -124,7 +160,16 @@ main
 .assignment-box h1 {
   font-size: clamp(1.1rem, 2.5vw, 2rem);
   text-wrap:nowrap;
-  color: rgb(100, 145, 34)
+  color: rgb(100, 145, 34) !important;
+}
+.assignment-box a
+{
+  color: rgb(100, 145, 34) !important;
+}
+
+.assignment-box a:hover
+{
+  color: rgb(61, 93, 14) !important;
 }
 
 .assignment-box h2 {
@@ -147,7 +192,7 @@ main
 }
 .general-info > h1, h2
 {
-    margin: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {

@@ -5,7 +5,7 @@
     {% for assignment in assignmentsDue%}
         <div id='assignment-box-Due' class='assignment-box'>
             <div class='general-info'>
-                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h1> <a href="{% url 'assignment-info' assignment.id%}">{{assignment.subjectConn.subjectName}}</a></h1>
                 <h2>{{assignment.subjectConn.teacher}}</h2>
             </div>
             <hr>
@@ -16,7 +16,7 @@
     {% for assignment in assignmentsLater%}
         <div id='assignment-box-Later' class='assignment-box'>
             <div class='general-info'>
-                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h1> <a href="{% url 'assignment-info' assignment.id%}">{{assignment.subjectConn.subjectName}}</a></h1>
                 <h2>{{assignment.subjectConn.teacher}}</h2>
             </div>
             <hr>
@@ -27,7 +27,7 @@
     {% for assignment in assignmentsLate%}
         <div id='assignment-box-Late' class='assignment-box'>
             <div class='general-info'>
-                <h1>{{assignment.subjectConn.subjectName}}</h1>
+                <h1> <a href="{% url 'assignment-info' assignment.id%}">{{assignment.subjectConn.subjectName}}</a></h1>
                 <h2>{{assignment.subjectConn.teacher}}</h2>
             </div>
             <hr>

@@ -3,7 +3,16 @@
 {%block mainContent%}
 <form method="POST" action="{% url 'assignments-newAssignment'%}">
     {% csrf_token %}
-    {{form.as_p}}
+    
+    {{ form.classField.errors }}
+    <label for="{{ form.classField.id_for_label }}">Предмет:</label>
+    {{ form.classField }}
+    {{ form.descField.errors }}
+    <label for="{{ form.descField.id_for_label }}">Описание:</label>
+    {{ form.descField }}
+    {{ form.dueField.errors }}
+    <label for="{{ form.dueField.id_for_label }}">Крайна дата:</label>
+    {{ form.dueField }}
     <input type='submit' value='Въведи'></input>
 </form>
 {%endblock%}
