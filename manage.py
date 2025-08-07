@@ -20,7 +20,7 @@ def main():
 
 
 if __name__ == '__main__':
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "homeworkManager.settings")
     if len(sys.argv) > 1 and sys.argv[1] == "runserver":
         port = os.getenv('PORT', '8000')
         sys.argv.append(f"0.0.0.0:{port}")
