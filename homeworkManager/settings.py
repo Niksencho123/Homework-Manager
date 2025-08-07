@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-p_$fgsqiug02#czfug=(z7fwpvxuuyo59331*@s6zlz91ry(h)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["decades-introduction-coordinated-toxic.trycloudflare.com", '127.0.0.1', 'localhost', 'considering-facilitate-shoppers-springs.trycloudflare.com', 'flex-ob-sensitive-above.trycloudflare.com', 'primary-standings-clock-uruguay.trycloudflare.com']
+ALLOWED_HOSTS = ["decades-introduction-coordinated-toxic.trycloudflare.com", '127.0.0.1', 'localhost', 'considering-facilitate-shoppers-springs.trycloudflare.com', 'flex-ob-sensitive-above.trycloudflare.com', 'primary-standings-clock-uruguay.trycloudflare.com', 'homeworkprototype.onrender.com']
 
 
 # Application definition
