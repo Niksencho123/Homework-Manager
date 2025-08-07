@@ -2,6 +2,13 @@
 
 
 {%block mainContent%}
+    {%if messages%}
+        {%for message in messages%}
+        <div class='server-messages'>
+            {{message}}
+        </div>
+        {%endfor%}
+    {%endif%}
     {% for assignment in assignments%}
         <div class='assignment-box'>
             <div class='general-info'>

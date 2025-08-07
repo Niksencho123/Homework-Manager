@@ -26,13 +26,14 @@ SECRET_KEY = 'django-insecure-p_$fgsqiug02#czfug=(z7fwpvxuuyo59331*@s6zlz91ry(h)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["decades-introduction-coordinated-toxic.trycloudflare.com", '127.0.0.1', 'localhost', 'considering-facilitate-shoppers-springs.trycloudflare.com']
+ALLOWED_HOSTS = ["decades-introduction-coordinated-toxic.trycloudflare.com", '127.0.0.1', 'localhost', 'considering-facilitate-shoppers-springs.trycloudflare.com', 'flex-ob-sensitive-above.trycloudflare.com', 'primary-standings-clock-uruguay.trycloudflare.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'assignments.apps.AssignmentsConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,3 +126,4 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = 'assignments-newAssignment'

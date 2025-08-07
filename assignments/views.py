@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Assignment, Subject
 from django.http import Http404
+from django.contrib import messages
 from .forms import AssignmentForm
 from datetime import date, timedelta
 from django.utils import timezone
@@ -11,7 +12,12 @@ def index(request):
     tomorrow = today + timedelta(days=1) 
 
     assignments = Assignment.objects.filter(dueDate=tomorrow)
-    context = {'assignments': assignments, 'tomorrow': True}
+    context = {
+        'assignments': assignments, 
+        'tomorrow': True, 
+        'StylesFiles': "styles/index.css",
+        'title': "Днес"
+    }
     return render(request, 'assignments/index.html', context)
 
 def this_week(request):
@@ -23,7 +29,14 @@ def this_week(request):
     assignmentsDue = Assignment.objects.filter(dueDate=tomorrow)
     assignmentsLate = Assignment.objects.filter(dueDate__range=(start_of_week, today))
     assignmentsLater = Assignment.objects.filter(dueDate__range=(tomorrow + timedelta(days=1), end_of_week))
-    context = {'assignmentsDue': assignmentsDue,'assignmentsLate': assignmentsLate, 'assignmentsLater': assignmentsLater, 'thisWeek': True}
+    context = {
+        'assignmentsDue': assignmentsDue,
+        'assignmentsLate': assignmentsLate, 
+        'assignmentsLater': assignmentsLater, 
+        'thisWeek': True, 
+        'StylesFiles': "styles/index.css",
+        'title': "Тази седмица"
+    }
     return render(request, 'assignments/thisWeek.html', context)
 
 def newAssignment(request):
@@ -32,12 +45,15 @@ def newAssignment(request):
         if form.is_valid():
             newAssignmentAdded = Assignment(subjectConn=Subject.objects.get(id=form.cleaned_data['classField']), assignmentDesc = form.cleaned_data['descField'], dueDate = form.cleaned_data['dueField'])
             newAssignmentAdded.save()
+            messages.success(request, "Заданието беше добавено")
             return redirect('assignments-success')
     else:
         form = AssignmentForm()
     context = {
         'form': form,
-        'addHomework': True
+        'addHomework': True,
+        'StylesFiles': "styles/index.css",
+        'title': "Ново задание"
     }
     return render(request, 'assignments/new.html', context)
 
@@ -49,4 +65,4 @@ def assignmentInfo(request, assignmentId):
         assignmentQueryInfo = Assignment.objects.get(pk=assignmentId)
     except Assignment.DoesNotExist:
         raise Http404("The page doesn't exist")
-    return render(request, 'assignments/info.html', {'assignment': assignmentQueryInfo})
+    return render(request, 'assignments/info.html', {'assignment': assignmentQueryInfo, 'StylesFiles': "styles/index.css", 'title': f"Задание №{assignmentQueryInfo.id}"})

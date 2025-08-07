@@ -7,8 +7,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href="{% static 'styles/index.css'%}">
-        <title>Начална страница</title>
+        <link rel='stylesheet' href="{% if StylesFiles %}{% static StylesFiles%} {%else%} {%static 'styles/index.css'%} {%endif%}">
+        <title>{%if title%} {{title}} {%else%} Страница {%endif%}</title>
+        <style>
+            body
+            {
+                background-image: url("{% static 'images/DJI_0112-scaled.webp' %}");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100vw 100vh; 
+                background-position: top center; 
+            }
+        </style>
     </head>
     <body>
         <header class='index-header'>

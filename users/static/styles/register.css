@@ -1,41 +1,8 @@
-#assignment-box-Late
-{
-  background-color: #ed5e5e80 !important;
-  border-left: 5px solid rgb(225, 64, 64);
-  
-}
 *
 {
   box-sizing:border-box;
 }
-#assignment-box-Due
-{
-  background-color: rgba(235, 224, 75, 0.693) !important;
-  border-left: 5px solid rgb(190, 179, 23);
-}
-#assignment-box-Later
-{
-  background-color: rgba(64, 152, 56, 0.5) !important;
-  border-left: 5px solid rgb(56, 164, 46);
-}
 
-#assignment-box-Due h1 a, #assignment-box-Later h1 a, #assignment-box-Late h1 a
-{
-  color: white !important;
-}
-
-#assignment-box-Late h1 a:hover
-{
-  color: rgb(149, 21, 21) !important;
-}
-#assignment-box-Later h1 a:hover
-{
-  color: rgb(5, 106, 12) !important;
-}
-#assignment-box-Due h1 a:hover
-{
-  color: rgb(148, 116, 9) !important;
-}
 header
 {
     text-align: center;
@@ -43,13 +10,17 @@ header
     color: white;
     text-shadow: black 2px 2px 5px;
 }
-
+body
+{
+  background: linear-gradient(135deg, #88d95a 0%, #4aab1a 100%);
+  min-height: 100vh;
+}
 p
 {
     font-size: 1.2rem;
 }
 
-nav
+header nav
 {
   text-align: start;
   list-style: none;
@@ -63,7 +34,7 @@ nav
   margin: 1%;
 }
 
-ul
+header ul
 {
   list-style-type: none;
   padding: 25px;
@@ -74,7 +45,7 @@ ul
   flex-direction: row;
 }
 
-li
+header li
 {
   background-color: rgba(250, 235, 215, 0.137);
   text-align: center;
@@ -82,7 +53,7 @@ li
 }
 
 
-li a
+header li a
 {
   text-decoration: none;
   color: white;
@@ -91,7 +62,7 @@ li a
   box-sizing: border-box;
 }
 
-li:hover
+header li:hover
 {
   scale: 1.05;
 }
@@ -99,49 +70,65 @@ li:hover
 {
   background-color: rgb(159, 150, 137);
 }
-.assignment-box
+.helptext
 {
-    background-color: rgb(255, 255, 255);
-    padding: 2%;
-    margin: 1%;
-    border-left: 5px solid rgb(34, 110, 48);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    border-radius: 10px;
-    box-shadow: rgb(135, 188, 136) 7px 7px 10px;
-    transition: scale 0.5s;
+  color: rgb(59, 59, 59);
 }
-.assignment-box h1 a 
-{
-  text-decoration: none;
-}
-
 form
 {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: start;
   padding: 5px;
   font-family: "Montserrat", sans-serif;
   font-size: clamp(1rem, 1.8/vw, 3rem);
 }
-form > input, select, textarea
+form div
+{
+  display: flex;
+  flex-direction: column;
+}
+form input, select, textarea
 {
   margin-top: 10px;
   margin-bottom: 10px;
+  min-width: 400px;
   border: 1px solid black;
   border-radius: 10px;
-  height: 30px;
+  height: 40px;
   text-align: center;
+  font-size: larger;
   font-family: "Montserrat", sans-serif;
 }
-form > input[type='submit']
+form input:focus,select:focus,textarea:focus
 {
-  max-width: 200px;
+  box-shadow: black 3px 3px 10px;
+}
+form input[type='submit']
+{
+  min-width: 300px;
+  transition: background-color 0.5s;
   background-color: rgba(0, 255, 255, 0.13);
   font-size: 20px;
-  align-self: center;
-  padding-left: 30px;
-  padding-right: 30px;
+}
+form input[type='submit']:hover
+{
+  background-color: rgba(0, 255, 255, 0.474);
+    cursor: pointer;
+}
+form label
+{
+    font-size: clamp(1.1rem, 2.5vw, 2rem);
+    font-weight: 450;
+}
+form ul
+{
+    margin: 0;
+}
+form li
+{
+    padding: 0;
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
 }
 #info h1{
   font-size: clamp(1.1rem, 2.5vw, 2rem);
@@ -160,67 +147,34 @@ main
   backdrop-filter: blur(4.1px);
   -webkit-backdrop-filter: blur(4.1px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 1.3vw;
+  padding: 2vw;
   margin: 1.2vw;
   
 }
-.assignment-box h1 {
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  text-wrap:nowrap;
-  color: rgb(100, 145, 34) !important;
-}
-.assignment-box a
-{
-  color: rgb(100, 145, 34) !important;
-}
 
-.assignment-box a:hover
-{
-  color: rgb(61, 93, 14) !important;
-}
-
-.assignment-box h2 {
-  font-size: clamp(0.8rem, 1.8vw, 1.3rem);
-}
-
-.assignment-box p {
-  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
-}
-.general-info
-{
-  
-  display: flex;
-  gap:1%;
-  align-items: baseline;
-}
-.assignment-box:hover
-{
-  scale: 1.02;
-}
-.general-info > h1, h2
-{
-  margin: 0;
-}
 
 @media only screen and (max-width: 600px) {
-  ul {
+  header ul {
     flex-direction: column;
     padding: 20px;
     gap: 5px;
     width: 100%;
   }
-
-  li {
+  form input[type='submit']
+  {
+    align-self: center;
+  }
+  header li {
     border: none !important;
     border-radius: 5px;
     margin-bottom: 10px;
     width: 100%;
   }
 
-  li:last-child {
+  header li:last-child {
     margin-bottom: 0; /* No extra margin on the last one */
   }
-  li:hover
+  header li:hover
   {
     scale: 1.02;
   }
